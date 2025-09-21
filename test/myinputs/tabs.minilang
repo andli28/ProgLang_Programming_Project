@@ -1,0 +1,5 @@
+    
+
+    # Do I throw a LexerError correctly after !, since != is valid but ! is not?
+    # Do I stop parsing after a LexerError?
+    var y20!20

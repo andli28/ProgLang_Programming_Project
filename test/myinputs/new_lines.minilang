@@ -1,0 +1,4 @@
+var 
+y := 
+20; # We're testing newlines as whitespace instead of spaces.
+

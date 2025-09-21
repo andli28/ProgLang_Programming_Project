@@ -1,0 +1,2 @@
+ifelse:=3:func:===50# my bad for this code
+# Testing if we do maximal munch correctly, and can parse without whitespace separating tokens
