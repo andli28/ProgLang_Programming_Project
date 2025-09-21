@@ -32,11 +32,6 @@ Lexer::~Lexer() {
     in.close();
 }
 
-void Lexer::syncPointer(int line, int col) {
-    this->line = line;
-    this->col = col;
-}
-
 // Create function that checks a string if it matches any lexeme, and returns the corresponding Token
 // If it doesn't match anything, return Token() which means line=0 (impossible otherwise)
 Token checkForMatch(const std::string &currText, int line, int col) {
@@ -89,7 +84,8 @@ Token Lexer::getNextToken() {
             if (!currText.empty()) {
                 break; // End of current token
             } else {
-                syncPointer(currLine, currCol);
+                this->line = currLine;
+                this->col = currCol;
                 continue; // Skip leading separators
             }
         }
@@ -121,7 +117,8 @@ Token Lexer::getNextToken() {
     // If we reach here, this is the end of the current token
     int startLine = this->line;
     int startCol = this->col + 1;
-    syncPointer(currLine, currCol);
+    this->line = currLine;
+    this->col = currCol;
     if (!currText.empty()) {
         Token t = checkForMatch(currText, startLine, startCol);
         // std::cout << "After sync: " << this->line << "," << this->col << std::endl; // --- IGNORE ---

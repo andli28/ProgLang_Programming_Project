@@ -10,7 +10,6 @@ class Lexer {
     std::ifstream in;
     std::vector <Token> tokens;
     int line = 1, col = 0;
-    void syncPointer(int line, int col);
 public:
     Lexer(const char *filename);
     ~Lexer();
